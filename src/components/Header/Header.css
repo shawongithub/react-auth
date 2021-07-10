@@ -4,6 +4,24 @@
     align-items: center;
     height: 60px;
     background-color: #88def4;
-
+}
+.header-container nav{
+    width: 400px;
+    margin: 20px;
 }
 
+.header-container nav a{
+    text-decoration: none;
+    margin: 10px;
+    color: black;
+}
+
+.header-container nav a:hover{
+    color: white;
+    background-color: purple;
+}
+
+.header-container h2{
+    margin-left: 50px;
+    color: purple;
+}
