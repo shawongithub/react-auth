@@ -9,7 +9,8 @@ const Templates = () => {
     return (
         <div style={backgroundStyle} >
             <div style={{ marginTop: '0px' }}>
-                hello
+                <span style={{ color: '#88def4' }}>no top margin</span>
+                <h1>hello</h1>
             </div>
         </div>
     );
