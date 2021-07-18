@@ -18,10 +18,10 @@
 
 .header-container nav a:hover{
     color: white;
-    background-color: purple;
+    background-color: tomato;
 }
 
 .header-container h2{
     margin-left: 50px;
-    color: purple;
+    color:tomato;
 }
