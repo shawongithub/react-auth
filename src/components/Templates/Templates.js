@@ -8,16 +8,15 @@ const Templates = () => {
     const backgroundStyle = {
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
-        height: '800px',
-        display: 'flex',
-        alignItems: 'center',
+        height: '800px'
     }
     console.log(traffics);
     return (
         <div style={backgroundStyle} >
-            <div style={{ margin: '100px' }}>
-                <span style={{ color: '#C1EEFA' }}>n</span>
-                <div className="row">
+            <span style={{ color: '#C1EEFA' }}>n</span>
+            <div style={{ width: '70%', position: 'absolute', top: 'calc(50% - 100px)', left: 'calc(50% - 472px)' }}>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     {
                         traffics.map(traffic => <Vehicle traffic={traffic} key={traffic.key} />)
                     }
