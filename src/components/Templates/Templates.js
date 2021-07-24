@@ -13,7 +13,7 @@ const Templates = () => {
     console.log(traffics);
     return (
         <div style={backgroundStyle} >
-            <span style={{ color: '#C1EEFA' }}>n</span>
+
             <div style={{ width: '70%', position: 'absolute', top: 'calc(50% - 100px)', left: 'calc(50% - 472px)' }}>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -21,6 +21,7 @@ const Templates = () => {
                         traffics.map(traffic => <Vehicle traffic={traffic} key={traffic.key} />)
                     }
                 </div>
+
             </div>
 
         </div>
