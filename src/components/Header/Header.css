@@ -1,27 +1,31 @@
+.header-background{
+    height: 80px;
+    background-color: #88def4;
+}
 .header-container{
     display: flex;
-    justify-content: space-between;
+    width: 70%;
+    position: absolute;
+    left: calc(50% - 472px);
     align-items: center;
-    height: 60px;
-    background-color: #88def4;
+    justify-content: space-between;
 }
 .header-container nav{
     width: 400px;
-    margin: 20px;
+    text-align: right;
 }
 
 .header-container nav a{
     text-decoration: none;
-    margin: 10px;
-    color: black;
+    margin: 10px 5px 10px 20px;
+    color:blue;
 }
 
 .header-container nav a:hover{
     color: white;
-    background-color: tomato;
+    background-color: orangered;
 }
 
 .header-container h2{
-    margin-left: 50px;
-    color:tomato;
+    color:orangered;
 }
