@@ -1,20 +1,21 @@
 import React from 'react';
-import './Login.css'
+import './SignUp.css'
 import { Link } from 'react-router-dom'
-
-const Login = () => {
+const SignUp = () => {
     return (
         <div>
-            <div className="login-form-container">
+            <div className="form-container">
                 <form>
-                    <h1>Login Here</h1>
+                    <h1>SignUp Here</h1>
+                    <input type="text" placeholder="Name" />
                     <input type="text" placeholder="Email" />
                     <input type="password" placeholder="Password" />
-                    <input type="submit" value="Login" />
-                    <p>Don't have an account? <Link to="/signup">SignUp</Link></p>
+                    <input type="password" placeholder="Confirm Password" />
+                    <input type="submit" value="Create an account" />
+                    <p>Already have an account? <Link to="/login">Login</Link></p>
                 </form>
             </div>
-            <div className="login-auth-container">
+            <div className="auth-container">
                 <div className="line">
                     <div className="sub-line"></div>
                     <div>Or</div>
@@ -27,4 +28,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
