@@ -33,6 +33,7 @@ const Login = () => {
                 .then((userCredential) => {
                     var user = userCredential.user;
                     console.log(user);
+
                 })
                 .catch((error) => {
                     var errorCode = error.code;
@@ -43,6 +44,7 @@ const Login = () => {
         }
         event.preventDefault()
     }
+
     return (
         <div>
             <div className="login-form-container">

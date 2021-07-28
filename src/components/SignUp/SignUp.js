@@ -13,8 +13,7 @@ const SignUp = () => {
         isSignedIn: false,
         name: '',
         email: '',
-        password: '',
-        confirmPassword: ''
+        password: ''
     })
 
     const blurHandler = e => {
@@ -42,13 +41,14 @@ const SignUp = () => {
 
     const signUpHandler = e => {
         e.preventDefault()
-        console.log(userInfo);
+
         if (userInfo.email && userInfo.password) {
-            console.log("welcome to be registered");
+
             firebase.auth().createUserWithEmailAndPassword(userInfo.email, userInfo.password)
                 .then((userCredential) => {
 
                     var user = userCredential.user;
+                    updateUserName(userInfo.name)
                     console.log(user);
 
                 })
@@ -60,6 +60,18 @@ const SignUp = () => {
 
                 });
         }
+    }
+    const updateUserName = name => {
+        const user = firebase.auth().currentUser;
+
+        user.updateProfile({
+            displayName: name
+        }).then(() => {
+            console.log("user name updated successfully");
+
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     return (
