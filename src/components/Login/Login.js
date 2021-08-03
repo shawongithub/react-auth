@@ -4,9 +4,11 @@ import './Login.css'
 import { Link } from 'react-router-dom'
 import firebase from "firebase/app";
 import "firebase/auth";
-
+import { useContext } from 'react';
+import { UserContext } from '../../App';
 
 const Login = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const [userInfo, setUserInfo] = useState({
         email: '',
         password: ''
@@ -28,12 +30,15 @@ const Login = () => {
         }
     }
     const submitHandler = event => {
+        console.log(loggedInUser);
         if (userInfo.email && userInfo.password) {
             firebase.auth().signInWithEmailAndPassword(userInfo.email, userInfo.password)
                 .then((userCredential) => {
                     var user = userCredential.user;
-                    console.log(user);
-
+                    const updatedLoggedInUser = { ...loggedInUser }
+                    updatedLoggedInUser.email = user.email
+                    updatedLoggedInUser.loggedIn = true
+                    setLoggedInUser(updatedLoggedInUser)
                 })
                 .catch((error) => {
                     var errorCode = error.code;

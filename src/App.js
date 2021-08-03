@@ -1,5 +1,6 @@
 import Templates from './components/Templates/Templates'
 import Header from './components/Header/Header';
+import { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,26 +8,44 @@ import {
 } from "react-router-dom";
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp'
+import Destination from './components/Destination/Destination';
+import Blog from './components/Blog/Blog';
 
+import { createContext } from 'react'
+export const UserContext = createContext()
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({
+    email: '',
+    loggedIn: false
+  })
+  console.log(loggedInUser);
   return (
-    <Router>
-      <Header></Header>
-      <Switch>
-        <Route exact path='/'>
-          <Templates />
-        </Route>
-        <Route path='/login'>
-          <Login />
-        </Route>
-        <Route path='/signup'>
-          <SignUp />
-        </Route>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
 
-      </Switch>
+      <Router>
+        <Header></Header>
+        <Switch>
+          <Route exact path='/'>
+            <Templates />
+          </Route>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='/signup'>
+            <SignUp />
+          </Route>
+          <Route path='/destination'>
+            <Destination />
+          </Route>
+          <Route path='/blog'>
+            <Blog />
+          </Route>
+        </Switch>
 
-    </Router>
+      </Router>
+
+    </UserContext.Provider>
   );
 }
 
