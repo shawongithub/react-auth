@@ -10,7 +10,7 @@ const Templates = () => {
         backgroundSize: 'cover',
         height: '800px'
     }
-    console.log(traffics);
+
     return (
         <div style={backgroundStyle} >
 
@@ -18,7 +18,7 @@ const Templates = () => {
 
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     {
-                        traffics.map(traffic => <Vehicle traffic={traffic} key={traffic.key} />)
+                        traffics.map(traffic => <Vehicle traffic={traffic} key={traffic.id} />)
                     }
                 </div>
 
