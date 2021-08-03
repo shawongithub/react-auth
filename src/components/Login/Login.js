@@ -1,13 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 import './Login.css'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import firebase from "firebase/app";
 import "firebase/auth";
 import { useContext } from 'react';
 import { UserContext } from '../../App';
 
 const Login = () => {
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const [userInfo, setUserInfo] = useState({
         email: '',
@@ -39,6 +43,7 @@ const Login = () => {
                     updatedLoggedInUser.email = user.email
                     updatedLoggedInUser.loggedIn = true
                     setLoggedInUser(updatedLoggedInUser)
+                    history.replace(from);
                 })
                 .catch((error) => {
                     var errorCode = error.code;

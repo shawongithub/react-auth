@@ -11,6 +11,8 @@ import SignUp from './components/SignUp/SignUp'
 import Destination from './components/Destination/Destination';
 import Blog from './components/Blog/Blog';
 
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
 import { createContext } from 'react'
 export const UserContext = createContext()
 
@@ -35,12 +37,12 @@ function App() {
           <Route path='/signup'>
             <SignUp />
           </Route>
-          <Route path='/destination'>
+          <PrivateRoute path='/destination'>
             <Destination />
-          </Route>
-          <Route path='/blog'>
+          </PrivateRoute>
+          <PrivateRoute path='/blog'>
             <Blog />
-          </Route>
+          </PrivateRoute>
         </Switch>
 
       </Router>
