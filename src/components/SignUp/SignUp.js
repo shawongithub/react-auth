@@ -10,13 +10,24 @@ firebase.initializeApp(firebaseConfig);
 
 const SignUp = () => {
     let history = useHistory()
+    const provider = new firebase.auth.GoogleAuthProvider();
     const [userInfo, setUserInfo] = useState({
         isSignedIn: false,
         name: '',
         email: '',
         password: ''
     })
-
+    const googleLoginHandler = () => {
+        firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                var user = result.user;
+                console.log("hello");
+            }).catch((error) => {
+                var errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    }
     const blurHandler = e => {
 
         let isFieldValid = true
@@ -96,7 +107,7 @@ const SignUp = () => {
                     <div className="sub-line"></div>
                 </div>
                 <input type="submit" value="Continue with facebook" />
-                <input type="submit" value="Continue  with  google" />
+                <input onClick={googleLoginHandler} type="submit" value="Continue  with  google" />
             </div>
         </div>
     );
