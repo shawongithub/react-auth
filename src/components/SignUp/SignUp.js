@@ -1,6 +1,6 @@
 import React from 'react';
 import './SignUp.css'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -9,6 +9,7 @@ import firebaseConfig from '../../firebaseConfig'
 firebase.initializeApp(firebaseConfig);
 
 const SignUp = () => {
+    let history = useHistory()
     const [userInfo, setUserInfo] = useState({
         isSignedIn: false,
         name: '',
@@ -50,7 +51,7 @@ const SignUp = () => {
                     var user = userCredential.user;
                     updateUserName(userInfo.name)
                     console.log(user);
-
+                    history.push('/login')
                 })
                 .catch((error) => {
                     var errorCode = error.code;
