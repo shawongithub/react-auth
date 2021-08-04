@@ -5,12 +5,16 @@ import { useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebaseConfig'
+import { useContext } from 'react';
+import { UserContext } from '../../App';
 
 firebase.initializeApp(firebaseConfig);
 
 const SignUp = () => {
     let history = useHistory()
     const provider = new firebase.auth.GoogleAuthProvider();
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+
     const [userInfo, setUserInfo] = useState({
         isSignedIn: false,
         name: '',
@@ -22,7 +26,11 @@ const SignUp = () => {
             .signInWithPopup(provider)
             .then((result) => {
                 var user = result.user;
-                console.log("hello");
+                const updatedLoggedInUser = { ...loggedInUser }
+                updatedLoggedInUser.email = user.email
+                updatedLoggedInUser.loggedIn = true
+                setLoggedInUser(updatedLoggedInUser)
+                history.push("/")
             }).catch((error) => {
                 var errorMessage = error.message;
                 console.log(errorMessage);

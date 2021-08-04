@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../App';
 
 const Login = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
@@ -17,6 +18,21 @@ const Login = () => {
         email: '',
         password: ''
     })
+    const googleLoginHandler = () => {
+        firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                var user = result.user;
+                const updatedLoggedInUser = { ...loggedInUser }
+                updatedLoggedInUser.email = user.email
+                updatedLoggedInUser.loggedIn = true
+                setLoggedInUser(updatedLoggedInUser)
+                history.replace(from);
+            }).catch((error) => {
+                var errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    }
     const blurHandler = e => {
 
         let isFieldValid = true
@@ -73,7 +89,7 @@ const Login = () => {
                     <div className="sub-line"></div>
                 </div>
                 <input type="submit" value="Continue with facebook" />
-                <input type="submit" value="Continue  with  google" />
+                <input onClick={googleLoginHandler} type="submit" value="Continue  with  google" />
             </div>
         </div>
     );
