@@ -6,8 +6,10 @@ import { useContext } from 'react';
 
 const Header = () => {
 
-    const [loggedInUser] = useContext(UserContext)
-    let link = loggedInUser.loggedIn ? <Link to='/logout'>Logout</Link> : <Link to='/login'>Login</Link>
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+
+    let link = loggedInUser.loggedIn ? <button className="button" onClick={() => setLoggedInUser({})}>Logout</button> : <Link to='/login'>Login</Link>
+
     return (
         <div className="header-background">
             <div className="header-container">

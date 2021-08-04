@@ -29,3 +29,10 @@
 .header-container h2{
     color:orangered;
 }
+
+.button{
+    border: none;
+    background-color: #88def4;
+    color: blue;
+}
+
