@@ -13,6 +13,7 @@ firebase.initializeApp(firebaseConfig);
 const SignUp = () => {
     let history = useHistory()
     const provider = new firebase.auth.GoogleAuthProvider();
+    const fbProvider = new firebase.auth.FacebookAuthProvider();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     const [userInfo, setUserInfo] = useState({
@@ -34,6 +35,27 @@ const SignUp = () => {
             }).catch((error) => {
                 var errorMessage = error.message;
                 console.log(errorMessage);
+            });
+    }
+    const facebookLoginHandler = () => {
+        firebase
+            .auth()
+            .signInWithPopup(fbProvider)
+            .then((result) => {
+                var credential = result.credential;
+                var user = result.user;
+                var accessToken = credential.accessToken;
+                console.log(user);
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                var email = error.email;
+                var credential = error.credential;
+                console.log(errorCode);
+                console.log(errorMessage);
+                console.log(email);
+                console.log(credential);
             });
     }
     const blurHandler = e => {
@@ -114,7 +136,7 @@ const SignUp = () => {
                     <div>Or</div>
                     <div className="sub-line"></div>
                 </div>
-                <input type="submit" value="Continue with facebook" />
+                <input onClick={facebookLoginHandler} type="submit" value="Continue with facebook" />
                 <input onClick={googleLoginHandler} type="submit" value="Continue  with  google" />
             </div>
         </div>
