@@ -88,7 +88,6 @@ const Login = () => {
                     <div>Or</div>
                     <div className="sub-line"></div>
                 </div>
-                <input type="submit" value="Continue with facebook" />
                 <input onClick={googleLoginHandler} type="submit" value="Continue  with  google" />
             </div>
         </div>

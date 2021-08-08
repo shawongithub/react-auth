@@ -5,16 +5,11 @@ import { useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebaseConfig'
-import { useContext } from 'react';
-import { UserContext } from '../../App';
 
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
 
 const SignUp = () => {
     let history = useHistory()
-    const provider = new firebase.auth.GoogleAuthProvider();
-    const fbProvider = new firebase.auth.FacebookAuthProvider();
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     const [userInfo, setUserInfo] = useState({
         isSignedIn: false,
@@ -22,43 +17,7 @@ const SignUp = () => {
         email: '',
         password: ''
     })
-    const googleLoginHandler = () => {
-        firebase.auth()
-            .signInWithPopup(provider)
-            .then((result) => {
-                var user = result.user;
-                const updatedLoggedInUser = { ...loggedInUser }
-                updatedLoggedInUser.email = user.email
-                updatedLoggedInUser.loggedIn = true
-                setLoggedInUser(updatedLoggedInUser)
-                history.push("/")
-            }).catch((error) => {
-                var errorMessage = error.message;
-                console.log(errorMessage);
-            });
-    }
-    const facebookLoginHandler = () => {
-        firebase
-            .auth()
-            .signInWithPopup(fbProvider)
-            .then((result) => {
-                var credential = result.credential;
-                var user = result.user;
-                var accessToken = credential.accessToken;
-                console.log(user);
-                console.log(accessToken);
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                var email = error.email;
-                var credential = error.credential;
-                console.log(errorCode);
-                console.log(errorMessage);
-                console.log(email);
-                console.log(credential);
-            });
-    }
+
     const blurHandler = e => {
 
         let isFieldValid = true
@@ -131,15 +90,7 @@ const SignUp = () => {
                     <p>Already have an account? <Link to="/login">Login</Link></p>
                 </form>
             </div>
-            <div className="auth-container">
-                <div className="line">
-                    <div className="sub-line"></div>
-                    <div>Or</div>
-                    <div className="sub-line"></div>
-                </div>
-                <input onClick={facebookLoginHandler} type="submit" value="Continue with facebook" />
-                <input onClick={googleLoginHandler} type="submit" value="Continue  with  google" />
-            </div>
+
         </div>
     );
 };

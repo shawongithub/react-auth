@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './Vehicle.css'
 
 const Vehicle = props => {
-    console.log(props);
-    const { name, image } = props.traffic
+
+    const { name, image, id } = props.traffic
+    let link = `/location/${id}`
 
     return (
         <div className="card">
@@ -14,7 +16,7 @@ const Vehicle = props => {
                 <p>{name}</p>
             </div>
             <div className="card-text">
-                <button className="book-button">Book Now</button>
+                <Link to={link}><button className="book-button">Book Now</button></Link>
             </div>
 
         </div>
