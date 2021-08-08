@@ -8,7 +8,7 @@ import firebaseConfig from '../../firebaseConfig'
 import { useContext } from 'react';
 import { UserContext } from '../../App';
 
-firebase.initializeApp(firebaseConfig);
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
 
 const SignUp = () => {
     let history = useHistory()
@@ -46,6 +46,7 @@ const SignUp = () => {
                 var user = result.user;
                 var accessToken = credential.accessToken;
                 console.log(user);
+                console.log(accessToken);
             })
             .catch((error) => {
                 var errorCode = error.code;

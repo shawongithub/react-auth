@@ -1,0 +1,27 @@
+.card{
+    width: 200px;
+    height: 210px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.card-image{
+    width: 140px;
+    height: 140px;
+    margin: auto;
+}
+.card-text{
+    width: 160px;
+    height: 30px;
+    margin: auto;
+    text-align: center;
+}
+
+.book-button{
+    border: none;
+    background: orangered;
+    color: white;
+    width: 140px;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import background from '../../images/Bg.png'
 import { traffics } from '../../fakeData/traffics';
 import Vehicle from '../Vehicle/Vehicle';
-import './Templates.css'
+import './Home.css'
 
 const Templates = () => {
     const backgroundStyle = {

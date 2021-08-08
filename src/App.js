@@ -1,4 +1,4 @@
-import Templates from './components/Templates/Templates'
+import Templates from './components/Home/Home'
 import Header from './components/Header/Header';
 import { useState } from 'react';
 import {
