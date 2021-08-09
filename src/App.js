@@ -45,9 +45,9 @@ function App() {
           <PrivateRoute path='/blog'>
             <Blog />
           </PrivateRoute>
-          <PrivateRoute>
+          <Route>
             <Location path='/location/:id' />
-          </PrivateRoute>
+          </Route>
           <Route>
             <Logout />
           </Route>
