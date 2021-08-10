@@ -1,0 +1,37 @@
+.search-location-container{
+        margin: 10px 100px;
+        display: flex;
+        justify-content: space-between;
+}
+.search-location-form{
+    margin-top: 10px;
+    width:350px;
+    height:220px;
+    background-color:lightgray;
+}
+
+.search-location-form input{
+    border: none;
+    width: 80%;
+    height: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.search-location-form label{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color:darkslategray;
+    font-weight: 500;
+}
+.search-location-form input[type="text"]{
+    outline: none;
+}
+.search-location-form input[type="submit"]{
+    border: none;
+    margin-top: 20px;
+    background-color: orangered;
+    cursor: pointer;
+    color: white;
+}
