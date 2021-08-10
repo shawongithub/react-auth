@@ -1,12 +1,16 @@
 import React from 'react';
 import mapImage from '../../images/Map.png'
 import './Location.css'
-const Location = () => {
+import { Link } from 'react-router-dom'
 
+const Location = () => {
+    const submitHandler = event => {
+        event.preventDefault()
+    }
     return (
         <div className="search-location-container">
             <div className="search-location-form">
-                <form >
+                <form onSubmit={submitHandler} >
                     <label htmlFor="pickup">Pick From</label>
                     <br />
                     <input type="text" name="pickup" required />
@@ -14,7 +18,7 @@ const Location = () => {
                     <label htmlFor="destination">Pick To</label>
                     <br />
                     <input type="text" name="destination" required />
-                    <input type="submit" value="Search" />
+                    <Link to="/landing-place"><input type="submit" value="Search" /></Link>
                 </form>
             </div>
             <div>

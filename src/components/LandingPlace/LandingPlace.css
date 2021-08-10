@@ -1,0 +1,10 @@
+.landing-place-container{
+    margin: 10px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.fare-details-container{
+    width: 350px;
+    height:500px;
+    background-color: lightgray;
+}
