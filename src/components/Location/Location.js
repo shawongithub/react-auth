@@ -6,12 +6,21 @@ import { useState } from 'react';
 
 const Location = () => {
     const [searched, setSearched] = useState(false)
+    const [location, setLocation] = useState({
+        start: 'mirpur',
+        end: 'dhanmondi'
+    })
     const submitHandler = event => {
         event.preventDefault()
         setSearched(true)
     }
+    console.log(location);
     let locationDiv = searched ? <div>
         <div className="fare-details-container">
+            <div className="location">
+                <h4>{location.start}</h4>
+                <h4>{location.end}</h4>
+            </div>
         </div>
     </div> :
         <div className="search-location-form">

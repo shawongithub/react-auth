@@ -40,3 +40,16 @@
     height:500px;
     background-color: lightgray;
 }
+.location{
+    position: relative;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: tomato;
+    color: white;
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    border:1px solid lightgray;
+    border-radius: 10px;
+}
