@@ -18,7 +18,7 @@ const Location = () => {
                 </form>
             </div>
             <div>
-                <img src={mapImage} alt="" style={{ width: '80%' }} />
+                <img src={mapImage} alt="" style={{ width: '100%' }} />
             </div>
         </div>
     );
