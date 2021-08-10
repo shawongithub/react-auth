@@ -16,7 +16,6 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { createContext } from 'react'
 import Logout from './components/Logout/Logout';
 import Location from './components/Location/Location';
-import LandingPlace from './components/LandingPlace/LandingPlace';
 export const UserContext = createContext()
 
 function App() {
@@ -46,9 +45,6 @@ function App() {
           <PrivateRoute path='/blog'>
             <Blog />
           </PrivateRoute>
-          <Route path='/landing-place'>
-            <LandingPlace />
-          </Route>
           <Route>
             <Location path='/location/:id' />
           </Route>
