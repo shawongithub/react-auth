@@ -2,10 +2,11 @@ import React from 'react';
 import mapImage from '../../images/Map.png'
 import './Location.css'
 import { useState } from 'react';
-
+import { useParams } from 'react-router-dom';
 
 const Location = () => {
-
+    const { vehicleId } = useParams()
+    console.log(vehicleId);
     const [searched, setSearched] = useState(false)
     const [location, setLocation] = useState({
         start: '',
