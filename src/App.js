@@ -23,7 +23,7 @@ function App() {
     email: '',
     loggedIn: false
   })
-  console.log(loggedInUser);
+
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
 
