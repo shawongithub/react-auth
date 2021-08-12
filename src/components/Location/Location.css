@@ -54,3 +54,25 @@
     border-radius: 10px;
     margin-bottom: 10px;
 }
+.starting-point{
+    position: absolute;
+    width: 180px;
+    height: 25px;
+    left: 15%;
+    top: 25%;
+}
+.end-point{
+    position: absolute;
+    width: 180px;
+    height: 25px;
+    left: 15%;
+    top: 55%;
+}
+
+.vertical-line {
+    border-left: 5px solid white;
+    height: 40px;
+    position: absolute;
+    left: 10%;
+    top: 35%;
+  }

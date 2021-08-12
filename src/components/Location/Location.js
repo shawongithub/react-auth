@@ -8,8 +8,7 @@ import { priceDetails } from '../../fakeData/priceDetails';
 const Location = () => {
     const { id } = useParams()
     const detailInfo = priceDetails.filter(data => data.vehicleId === parseInt(id))
-    console.log(detailInfo);
-    priceDetails.map(data => console.log(data.vehicleId))
+    const detailInfoArray = detailInfo[0].details
     const [searched, setSearched] = useState(false)
     const [location, setLocation] = useState({
         start: '',
@@ -31,15 +30,23 @@ const Location = () => {
             setLocation(updatedLocation)
         }
     }
-    const testData = [1, 2, 3, 4]
+
     let locationDiv = searched ? <div>
         <div className="fare-details-container">
             <div className="location">
-                <h4>{location.start}</h4>
-                <h4>{location.end}</h4>
+
+                <div className="vertical-line"></div>
+                <div className="starting-point">
+                    <h4>{location.start}</h4>
+                </div>
+                <div className="end-point">
+                    <h4>{location.end}</h4>
+                </div>
+
+
             </div>
             {
-                testData.map(data => <PriceCard details={data} />)
+                detailInfoArray.map(data => <PriceCard details={data} key={data.objId} />)
             }
 
         </div>
