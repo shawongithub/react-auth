@@ -3,10 +3,13 @@ import mapImage from '../../images/Map.png'
 import './Location.css'
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import PriceCard from './PriceCard/PriceCard';
+import { priceDetails } from '../../fakeData/priceDetails';
 const Location = () => {
-    const { vehicleId } = useParams()
-    console.log(vehicleId);
+    const { id } = useParams()
+    const detailInfo = priceDetails.filter(data => data.vehicleId === parseInt(id))
+    console.log(detailInfo);
+    priceDetails.map(data => console.log(data.vehicleId))
     const [searched, setSearched] = useState(false)
     const [location, setLocation] = useState({
         start: '',
@@ -28,13 +31,17 @@ const Location = () => {
             setLocation(updatedLocation)
         }
     }
-
+    const testData = [1, 2, 3, 4]
     let locationDiv = searched ? <div>
         <div className="fare-details-container">
             <div className="location">
                 <h4>{location.start}</h4>
                 <h4>{location.end}</h4>
             </div>
+            {
+                testData.map(data => <PriceCard details={data} />)
+            }
+
         </div>
     </div> :
         <div className="search-location-form">
